@@ -1,12 +1,20 @@
 This repository is for the HL-LHC track tracker.
-
 It has the following code
 
-1. CMSSW analyser to extract HL-LHC outer tracker geometry to a csv file
-2. Code to make 3D model by convert csv file to a step file or glb file
+1. CMSSW analyser to extract HL-LHC outer tracker geometry to a csv file.
+2. Code to make 3D model of HL-LHC outer tracker by using csv file.
+3. Code to make R-Z view of HL-LHC outer tracker by using csv file.
 
+The output of the codes are below
+- `D110_T35_outer_tracker_sensor_surfaces.csv`
+- `tracker_segmented_glb_files` folder
+- `pictures` folder
 
-# CMSSW analyser
+The csv file and the 3D model can be found below
+- `lxplus:~jaebak/work_public/L1_track_finder/D110_T35_outer_tracker_sensor_surfaces.csv`
+- `lxplus:~jaebak/work_public/L1_track_finder/tracker_segmented_glb_files`
+
+# CMSSW analyser to extract HL-LHC outer tracker geometry
 
 Extracts HL-LHC outer tracker D110 geometry to `D110_T35_outer_tracker_sensor_surfaces.csv` file.
 
@@ -24,7 +32,7 @@ cd ExtractGeometry/OuterTrackerGeometry/test
 cmsRun dumpD110OuterTrackerStacks_cfg.py
 ```
 
-# Code to make 3D model
+# Code to make 3D model of HL-LHC outer tracker
 
 I run the below code on my Mac where I use `uv` for managing python packages.
 
@@ -63,5 +71,12 @@ mkdir tracker_segmented_glb_files
 
 # One can open the 3D glb models with 3D viewers such as Godot.
 
-./plot_cms_tracker_rz.py D110_T35_outer_tracker_sensor_surfaces.csv pictures/tracker_rz.pd
+```
+
+# Code to make R-Z view of HL-LHC outer tracker
+```
+# Using above python setup
+source .venv/bin/activate
+
+./plot_cms_tracker_rz.py D110_T35_outer_tracker_sensor_surfaces.csv pictures/tracker_rz.pdf
 ```
